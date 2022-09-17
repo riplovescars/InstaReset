@@ -16,6 +16,7 @@ It supports username and email methods.
 - Nice looking CLI 🎨
 
 ## Requirements
+_in case you want to run the script quickly without the requirments just run the `main.exe` file_
 - [Python 3.6+](https://www.python.org/downloads/)
 - [Requests](https://pypi.org/project/requests/) module `pip install requests`
 - [Colorama](https://pypi.org/project/colorama/) module `pip install colorama`
