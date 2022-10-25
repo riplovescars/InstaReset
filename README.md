@@ -14,6 +14,7 @@ It supports username and email methods.
 - Faster ⚡
 - No reCAPTCHA 🤖
 - Nice looking CLI 🎨
+- Works on mobile 📱
 
 ## Requirements
 _in case you want to run the script quickly without the requirments just run the `main.exe` file_
