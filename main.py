@@ -21,7 +21,6 @@ print(Fore.MAGENTA + """
 |___|_| |_|___/\__\__,_| |_| \_\___||___/\___|\__|
 
 [*] Version: v1.0
-[*] Instagram: @kh.pythonista
 [*] GitHub: https://github.com/Kh4lidMD
 """)
 
@@ -54,7 +53,7 @@ if method == 'username':
         invalid()
     if target.startswith('.') or target.endswith('.'):
         invalid()
-    
+
     for char in target:
         if char not in ascii_lowercase + digits + '_.':
             invalid()
@@ -95,6 +94,7 @@ try:
     else:
         print(Fore.RED + "[-] Error")
         print(Fore.RED + "[-] Instagram error: " + json_data['message'])
+
 # no internet
 except requests.ConnectionError:
     print(Fore.RED + "[-] Error")
