@@ -17,7 +17,7 @@ It supports username and email methods.
 - Works on mobile 📱
 
 ## Requirements
-_in case you want to run the script quickly without the requirments just run the `main.exe` file_
+_in case you want to run the script quickly without the requirments and python just run the `main.exe` file_
 - [Python 3.6+](https://www.python.org/downloads/)
 - [Requests](https://pypi.org/project/requests/) module `pip install requests`
 - [Colorama](https://pypi.org/project/colorama/) module `pip install colorama`
