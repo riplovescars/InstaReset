@@ -1,16 +1,15 @@
 from colorama import Fore, init
 from random import choice
-from string import (
-    ascii_lowercase,
-    ascii_uppercase,
-    digits
-)
+from string import ascii_lowercase, ascii_uppercase, digits
+
 import requests
 import subprocess
+
 
 # initing and clearing the screen
 init(autoreset=True)
 subprocess.run(['cls||clear'], shell=True)
+
 
 # showing startup ascii art
 print(Fore.MAGENTA + """
@@ -20,28 +19,26 @@ print(Fore.MAGENTA + """
  | || | | \__ \ || (_| | |  _ <  __/\__ \  __/ |_ 
 |___|_| |_|___/\__\__,_| |_| \_\___||___/\___|\__|
 
-[*] Version: v1.0
+[*] Version: v1.1
 [*] GitHub: https://github.com/Kh4lidMD
 """)
 
-# asking for a method
-print(Fore.BLUE + "[+] Please choose a method")
-print("[1] Email")
-print("[2] Username")
-method = input("[>] Method: ")
-if method == '1':
-    method = 'user_email'
-elif method == '2':
-    method = 'username'
-else:
-    print(Fore.RED + "[-] Invalid method")
-    exit()
-print("\n", end='')
 
 # asking for the target
-print(Fore.BLUE + "[+] Please enter the target's " + method)
-target = input("[>] " + method.capitalize() + ": ")
+print(Fore.BLUE + "[+] Please enter the target")
+target = input("[>] : ")
 print("\n", end='')
+
+
+# detecting the target's method
+if target.startswith("@"):
+    target = target[1:]
+    method = "username"
+elif "@" in target:
+    method = "user_email"
+else:
+    method = "username"
+
 
 # validating the target if it's a username
 def invalid():
@@ -58,10 +55,12 @@ if method == 'username':
         if char not in ascii_lowercase + digits + '_.':
             invalid()
 
+
 # generating a random 32 character csrf token
 csrf = ''
 for i in range(32):
     csrf += choice(ascii_lowercase + ascii_uppercase + digits)
+
 
 # setting request data
 data = {
@@ -69,10 +68,12 @@ data = {
     method: target
 }
 
+
 # setting request headers
 headers = {
     'user-agent': "Instagram 150.0.0.0.000 Android (29/10; 300dpi; 720x1440)"
 }
+
 
 # sending the request
 try:
@@ -88,7 +89,8 @@ try:
     if json_data['status'] == 'ok':
         print(Fore.GREEN + "[+] Success")
         print(Fore.GREEN + "[+] Password reset link sent")
-        print(Fore.GREEN + "[+] " + json_data['toast_message'])
+        if method == 'username':
+            print(Fore.GREEN + "[+] " + json_data['toast_message'])
     
     # error
     else:
@@ -101,10 +103,13 @@ except requests.ConnectionError:
     print(Fore.RED + "[-] Connection error")
     exit()
 
+
+# timeout error
 except requests.exceptions.Timeout:
     print(Fore.RED + "[-] Error")
     print(Fore.RED + "[-] Instagram took too long to respond")
     exit()
+
 
 # exit prompt
 print(Fore.RED + "\n[>] Enter to exit ", end='')
