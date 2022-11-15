@@ -17,7 +17,7 @@ This script works by using a faked mobile user agent like `Instagram 150.0.0.0.0
 ## Requirements
 _in case you want to run the script quickly without the requirments and python just run the `main.exe` file_
 <br>
-_which was converted using [PyInstaller](https://pyinstaller.org/en/stable/)_
+_which was converted using [PyInstaller](https://pyinstaller.org/en/stable/), [click here to install](https://www.github.com/Kh4lidMD/InstaReset/raw/main/main.exe/)_
 - [Python 3 or higher](https://www.python.org/downloads/)
 - [Requests](https://pypi.org/project/requests/) module `pip install requests`
 - [Colorama](https://pypi.org/project/colorama/) module `pip install colorama`
