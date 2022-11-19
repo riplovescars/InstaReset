@@ -5,14 +5,20 @@
 ## What is this?
 This script was made to send a Instagram reset password request using Python **without asking for reCAPTCHA** as Instagram does if we used a browser, It supports username and email methods.
 
+<br>
+
 ## How it works ?
 This script works by using a faked mobile user agent like `Instagram 150.0.0.0.000 Android (29/10; 300dpi; 720x1440)` and send a POST request to `https://i.instagram.com/api/v1/accounts/send_password_reset/` _with a random generated CSRF token of 32 chars_ in the request data.
+
+<br>
 
 ## Features
 - Faster ⚡
 - No reCAPTCHA 🤖
 - Nice looking CLI 🎨
 - Works on mobile 📱
+
+<br>
 
 ## Requirements
 _in case you want to run the script quickly without the requirments and python just run the `main.exe` file_
@@ -31,6 +37,8 @@ _which was converted using [PyInstaller](https://pyinstaller.org/en/stable/), [c
 
 **v1.0**
 - Initial release
+
+<br>
 
 ## Module version
 Coming soon...
